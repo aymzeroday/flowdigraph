@@ -1,9 +1,13 @@
 import sys
 from parser.servicenow_parser import parse_servicenow
 from render.mermaid_builder import build_mermaid
+from parser.bmc_parser import parse_bmc
 
 def main(input_path, output_path):
-    data = parse_servicenow(input_path)
+    if "bmc" in input_path.lower():
+        data = parse_bmc(input_path)
+    else:
+        data = parse_servicenow(input_path)
     mermaid_text = build_mermaid(data)
 
     with open(output_path, 'w') as f:

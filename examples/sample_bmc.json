@@ -1,0 +1,30 @@
+{
+    "workflow_steps": [
+      {
+        "id": "START",
+        "label": "Start",
+        "next": ["AP1"]
+      },
+      {
+        "id": "AP1",
+        "label": "Approval: Manager",
+        "next": ["TSK1"]
+      },
+      {
+        "id": "TSK1",
+        "label": "Task: Provision Account",
+        "next": ["TSK2"]
+      },
+      {
+        "id": "TSK2",
+        "label": "Task: Assign Email",
+        "next": ["END"]
+      },
+      {
+        "id": "END",
+        "label": "End",
+        "next": []
+      }
+    ]
+  }
+  
