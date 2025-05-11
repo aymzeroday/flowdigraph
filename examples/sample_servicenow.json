@@ -1,0 +1,10 @@
+{
+    "workflow_steps": [
+      { "name": "Start", "transitions": [{ "to": "Approval1" }] },
+      { "name": "Approval1", "transitions": [{ "to": "Task1" }] },
+      { "name": "Task1", "transitions": [{ "to": "Task2" }] },
+      { "name": "Task2", "transitions": [{ "to": "Done" }] },
+      { "name": "Done", "transitions": [] }
+    ]
+  }
+  
