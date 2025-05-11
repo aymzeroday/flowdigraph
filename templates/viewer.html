@@ -22,5 +22,27 @@
     <h3>📊 Diagram Output:</h3>
     <div class="mermaid">{{ mermaid|safe }}</div>
   {% endif %}
+  <!-- Floating Node Info Panel -->
+<div id="infoPanel" style="display:none; position:fixed; bottom:20px; right:20px; background:white; padding:15px; border:1px solid #ccc; box-shadow:0 0 10px rgba(0,0,0,0.2); z-index:999;">
+  <h5 id="infoTitle">Node Info</h5>
+  <div id="infoContent">Click a node to see details</div>
+  <button onclick="document.getElementById('infoPanel').style.display='none'">Close</button>
+</div>
+
+<script>
+  function showNodeInfo(id) {
+    const content = {
+      "Start": "This is the entry point of the workflow.",
+      "Approval1": "Manager approval required before proceeding.",
+      "Task1": "Provision user account.",
+      "Task2": "Assign company email address.",
+      "Done": "Workflow completed."
+    };
+
+    document.getElementById('infoTitle').innerText = id.replaceAll('_', ' ');
+    document.getElementById('infoContent').innerText = content[id.replaceAll('_', ' ')] || "No metadata found.";
+    document.getElementById('infoPanel').style.display = 'block';
+  }
+</script>
 </body>
 </html>
